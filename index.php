@@ -1,5 +1,23 @@
 <?php
 
+// $nav =[
+//     [
+//         "Introduzione" => "link",
+//     ],
+//     [
+//         "Norme sulla privacy" => "link",
+//     ],
+//     [
+//         "Termini di servizio" => "link",
+//     ],
+//     [
+//         "Tecnologie" => "link",
+//     ],
+//     [
+//         "Domande frequenti" => "link",
+//     ]
+// ];
+
 $faqs =[
     [
         "request" => "Come state implementando la recente decisione della Corte di giustizia dell'Unione europea (CGUE) relativa al diritto all'oblio?",
@@ -41,17 +59,51 @@ $faqs =[
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets./style.css">
     <title>Google</title>
 </head>
 <body>
 
-    <?php foreach($faqs as $par) : ?>
-    <h1><?= $par["request"] ?></h1>
-    <?php foreach($par["result"] as $block) : ?>
-    <p><?= $block ?></p>
-    <?php endforeach ?>
+    <header class="container-fluid">
 
-    <?php endforeach ?>
+        <!-- navbar sito -->
+        <nav class="navbar">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="">
+                <span class="text-dark">Privacy & Termini</span>
+            </a>
+        </nav>
+
+        <!-- elenco funzioni sito -->
+        <div class="row border-bottom pb-2">
+            <div class="col-6 d-flex justify-content-around font-weight-bold text-secondary">
+                <span>Introduzione</span>
+                <span>Norme sulla privacy</span>
+                <span>Termini di servizio</span>
+                <span>Tecnologie</span>
+                <span>Domande frequenti</span>
+            </div>
+        </div>
+            
+    </header>
+    
+    <main class="container-fluid py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-7">
+                <?php foreach($faqs as $par) : ?>
+                <h4 class="font-weight-bold"><?= $par["request"] ?></h4>
+                <?php foreach($par["result"] as $block) : ?>
+                <p><?= $block ?></p>
+                <?php endforeach ?>
+
+                <?php endforeach ?>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>         
